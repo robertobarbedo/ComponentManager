@@ -1,0 +1,33 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+/**Generated Code**/
+using <#=Args.ProjectName#>.Data.CustomItems;
+using <#=Args.ProjectName#>.Data.RenderingParameters;
+using Score.UI.Web.Areas.ScoreUI.Models;
+using Sitecore.Data.Items;
+using Sitecore.Mvc.Presentation;
+ 
+namespace <#=Args.ProjectName#>.Web.Areas.<#=Args.ProjectName#>.Models<#=Args.ComponentFolderOnly.Replace('/','.')#>
+{
+    public partial class <#=Args.ComponentName#>RenderingModel : RenderingModelBase<<#=Args.ComponentName#>Parameters, <#=Args.ComponentName#>Item>
+    { 
+        public override void Initialize(Rendering rendering)
+        {
+            base.Initialize(rendering);
+            if (HasDatasource)
+            {
+            }
+        }
+ 
+        protected override <#=Args.ComponentName#>Item InitializeDatasource(Item item)
+        {
+            <#=Args.ComponentName#>Item datasource;
+            return <#=Args.ComponentName#>Item.TryParse(item, out datasource) ? datasource : null;
+        }
+    }
+} 

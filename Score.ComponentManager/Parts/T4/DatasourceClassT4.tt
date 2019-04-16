@@ -1,0 +1,291 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+/**Generated Code**/
+using Score.Custom.FieldTypes;
+using Score.Data.Extensions;
+using Score.UI.Data.DatasourceItems;
+using Sitecore.Data;
+using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
+using Sitecore.Data.Fields;
+ 
+namespace <#=Args.ProjectName#>.Data.CustomItems
+{
+    public partial class <#=Args.ComponentName#>Item : ScoreUIItem
+    {
+        protected internal <#=Args.ComponentName#>Item(Item item)
+            : base(item)
+        {
+            <#foreach (var field in Args.DatasourceFields) {  #>
+            <#=ToCSharp(field.Name)#> = item.Fields[FieldIDs.<#=ToCSharp(field.Name)#>];
+            <#}#>
+        }
+ 
+
+        <#foreach (var field in Args.DatasourceFields) {  #>
+        public <#=GetFieldType(field.Type)#> <#=ToCSharp(field.Name)#> { get; set; }
+        <#}#>
+         
+        <#foreach (var field in Args.DatasourceFields) {  #>
+        public virtual bool Has<#=ToCSharp(field.Name)#>
+        {
+            get { return <#=ToCSharp(field.Name)#> != null && !string.IsNullOrWhiteSpace(<#=ToCSharp(field.Name)#>.Value); }
+        }
+
+        <#}#>
+
+        #region [ Operators ]
+        public static implicit operator <#=Args.ComponentName#>Item(Item innerItem)
+        {
+            return innerItem == null ? null : new <#=Args.ComponentName#>Item(innerItem);
+        }
+ 
+        public static implicit operator Item(<#=Args.ComponentName#>Item customItem)
+        {
+            return customItem == null ? null : customItem.InnerItem;
+        }
+ 
+        public static bool TryParse(Item item, out <#=Args.ComponentName#>Item parsedItem)
+        {
+            parsedItem = item == null || !item.IsDerived(Template) ? null : new <#=Args.ComponentName#>Item(item);
+            return parsedItem != null;
+        }
+        #endregion
+        
+        #region [ Template ]
+        public static ID Template { get { return new ID("<#=Args.TemplateID#>"); } }
+        
+        public static class FieldNames 
+        {
+            <#foreach (var field in Args.DatasourceFields) {  #>
+            public static string <#=ToCSharp(field.Name)#> { get { return "<#=field.Name#>"; } }
+            <#}#>
+        }
+        public static class FieldIDs
+        {
+            <#foreach (var field in Args.DatasourceFields) {  #>
+            public static string <#=ToCSharp(field.Name)#> { get { return "<#=field.ID#>"; } }
+            <#}#>
+        }
+        #endregion
+    }
+}
+
+
+<#+
+public string ToCSharp(string name)
+{
+    name = name ?? "";
+    return name.Replace(" ","").Replace("-","_").Replace(".","");
+}
+
+public string GetFieldType(string typeName)
+{
+    var fieldType = "CustomField";
+     
+    switch (typeName.ToLower())
+    {
+        case "tracking":
+            fieldType = "Sitecore.Analytics.Data.TrackingField";
+            break;
+        
+        //SIMPLE TYPES FIELDS:
+        case "checkbox":
+            fieldType = "CheckboxField";
+            break;
+        
+        case "date":
+        case "datetime":
+            fieldType = "DateField";
+            break;
+        
+        case "file":
+            fieldType = "FileField";
+            break;
+        
+        case "image":
+            fieldType = "ImageField";
+            break;
+        
+        case "rich text":
+            fieldType = "HtmlField";
+            break;
+        
+        case "integer":
+        case "number":
+        case "password":
+        case "single-line text":
+        case "multi-line text":
+            fieldType = "TextField";
+            break;
+        
+        case "word document":
+            fieldType = "WordDocumentField";
+            break;
+        
+        //SOCIAL FIELDS
+        case "accounts multilist":
+            fieldType = "MultilistField";
+            break;
+        
+        case "campaign tree":
+            fieldType = "ReferenceField";
+            break;
+        
+        case "countable edit":
+            fieldType = "TextField";
+            break;
+        
+        //LIST FIELDS
+        case "checklist":
+        case "multilist":
+        case "multilist with search":
+        case "treelist":
+        case "treelistex":
+            fieldType = "MultilistField";
+            break;
+            
+        case "droplist":
+            fieldType = "ValueLookupField";
+            break;
+            
+        case "grouped droplink":
+        case "grouped droplist":
+            fieldType = "GroupedDroplinkField";
+            break;
+            
+        case "name lookup value list":
+        case "name value list":
+            fieldType = "NameValueListField";
+            break;
+            
+        //LINK FIELDS
+        case "droplink":
+            fieldType = "LookupField";
+            break;
+            
+        case "droptree":
+            fieldType = "ReferenceField";
+            break;
+            
+        case "general link":
+        case "general link with search":
+            fieldType = "LinkField";
+            break;
+            
+        case "version link":
+            fieldType = "VersionLinkField";
+            break;
+            
+        //SYSTEM FIELDS
+        case "custom":
+            fieldType = "CustomCustomField";
+            break;
+            
+        case "datasource":
+            fieldType = "DatasourceField";
+            break;
+            
+        case "file drop area":
+            fieldType = "FileDropAreaField";
+            break;
+            
+        case "internal link":
+            fieldType = "InternalLinkField";
+            break;
+            
+        case "page preview":
+            fieldType = "PagePreviewField";
+            break;
+            
+        case "rendering datasource":
+            fieldType = "RenderingDatasourceField";
+            break;
+            
+        case "rules":
+            fieldType = "RulesField";
+            break;
+            
+        case "security":
+            fieldType = "TextField";
+            break;
+            
+        case "template field source":
+            fieldType = "TemplateFieldSourceField";
+            break;
+            
+        case "thumbnail":
+            fieldType = "ThumbnailField";
+            break;
+            
+        //DEPRECATED  FIELDS
+        case "html":
+            fieldType = "HtmlField";
+            break;
+            
+        case "link":
+            fieldType = "LinkField";
+            break;
+            
+        case "lookup":
+            fieldType = "LookupField";
+            break;
+            
+        case "memo":
+        case "text":
+            fieldType = "TextField";
+            break;
+            
+        case "reference":
+            fieldType = "ReferenceField";
+            break;
+            
+        case "tree":
+            fieldType = "ReferenceField";
+            break;
+            
+        case "tree list":
+        case "treelist with search":
+            fieldType = "MultilistField";
+            break;
+            
+        case "valuelookup":
+            fieldType = "ValueLookupField";
+            break;
+            
+                
+        //SCORE FIELDS
+        case "raw text":
+        case "users and roles":
+        case "geolocation":
+        case "youtubevideo":
+        case "kaltura":
+        case "vimeo":
+        case "brightcove":
+        case "simple colorpicker":
+            fieldType = "TextField";
+            break;
+            
+        case "custom treelist":
+            fieldType = "MultilistField";
+            break;
+            
+        case "picture":
+            fieldType = "ImageField";
+            break;
+            
+        
+        //DEFAULT
+        default:
+            fieldType = "CustomField";
+            break;
+    }
+ 
+    return fieldType;
+}
+#>

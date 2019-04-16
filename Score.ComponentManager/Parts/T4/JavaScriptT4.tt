@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+define(['jquery'], function($) {
+    function <#=Args.ComponentName#>(scope) { 
+    }
+
+    return function init(args) {
+        return args.IsExperienceEditorEditing ? null : new <#=Args.ComponentName#>(args.scope);
+    }
+});
