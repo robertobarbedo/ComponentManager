@@ -9,7 +9,13 @@ namespace Score.ComponentManager.Parts
     {
         public PartFileBase(Item componentItem) : base(componentItem) { }
 
-        public string ComponentPhysicalPath { get { return ComponentPath.Replace('/', '\\'); } }
+        public string ComponentPhysicalPath
+        {
+            get
+            {
+                return ComponentPath.Replace('/', '\\').Replace(" ", "");
+            }
+        }
 
         protected string ClassName { get; set; }
 

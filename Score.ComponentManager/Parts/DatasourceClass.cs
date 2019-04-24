@@ -15,7 +15,7 @@ namespace Score.ComponentManager.Parts
 
             ClassName = ComponentPath.Split('/').Reverse().Take(1).FirstOrDefault() ?? "";
 
-            ModelType = $"{ProjectName}.Data.CustomItems{ComponentPath.Replace("/", ".")}, {ProjectName}.Data";
+            ModelType = $"{BaseNamespace}.Data.CustomItems{ComponentPath.Replace(" ", "").Replace("/", ".")}, {BaseNamespace}.Data";
 
             Status = File.Exists(Path) ? Status.Created : Status.Missing;
         }
@@ -33,6 +33,7 @@ namespace Score.ComponentManager.Parts
             DatasourceClassT4 tt = new DatasourceClassT4(new T4Args()
             {
                 ProjectName = ProjectName,
+                BaseNamespace = BaseNamespace,
                 ComponentName = ComponentItem.Name,
                 ComponentPath = ComponentPath,
                 TemplateID = new DatasourceTemplate(ComponentItem).ID,

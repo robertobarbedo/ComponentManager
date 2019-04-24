@@ -4,7 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 
-@using <#=Args.ProjectName#>.Data.CustomItems
+@using <#=Args.BaseNamespace#>.Data.CustomItems<#=Args.ComponentFolderOnlyNoSpace.Replace('/','.')#>
 @using Score.Custom.FieldTypes
 @model <#=Args.ModelType#>
  
@@ -13,14 +13,15 @@
     <div class="@Model.Classes">
         <#foreach (var field in Args.DatasourceFields) {  #>
         <div>
-        @Html.Sitecore().Field(<#=Args.ComponentName#>Item.FieldNames.<#=ToCSharp(field.Name)#>)
+        @Html.Sitecore().Field(<#=Args.ComponentNameNoSpace#>Item.FieldNames.<#=ToCSharp(field.Name)#>)
         </div>
         <#}#>
     </div>
 }
 else
 {
-    using (Html.BeginUXModule("<#=Args.ProjectName#>/Components/<#=Args.ComponentPath#>",
+    using (Html.BeginUXModule(
+    Model.UXModule,
     new
     {
         IsEditing = Sitecore.Context.PageMode.IsExperienceEditorEditing
@@ -29,7 +30,7 @@ else
     {
         <#foreach (var field in Args.DatasourceFields) {  #>
         <div>
-        @Html.Sitecore().Field(<#=Args.ComponentName#>Item.FieldNames.<#=ToCSharp(field.Name)#>)
+        @Html.Sitecore().Field(<#=Args.ComponentNameNoSpace#>Item.FieldNames.<#=ToCSharp(field.Name)#>)
         </div>
         <#}#>
     }

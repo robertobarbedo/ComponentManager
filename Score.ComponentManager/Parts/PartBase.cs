@@ -8,13 +8,21 @@ namespace Score.ComponentManager.Parts
     {
         public Item ComponentItem { get; set; }
 
-        public string ComponentPath { get; set; }
+        public virtual string ComponentPath { get; set; }
 
         public string ComponentFolderOnly { get { return string.Join("/", ComponentPath.Split('/').Reverse().Skip(1).Reverse().ToArray()); } }
 
         public Database Database { get; set; }
 
         public string ProjectName => Sitecore.Configuration.Settings.GetSetting("ComponentManager.ProjectName", "Undefined");
+
+        public string BaseNamespace
+        {
+            get
+            {
+                return string.IsNullOrWhiteSpace(Sitecore.Configuration.Settings.GetSetting("ComponentManager.BaseNamespace", "")) ? ProjectName : Sitecore.Configuration.Settings.GetSetting("ComponentManager.BaseNamespace", "");
+            }
+        }
 
         public string WebProjectPath => Sitecore.Configuration.Settings.GetSetting("ComponentManager.WebProjectPath", "Undefined");
 

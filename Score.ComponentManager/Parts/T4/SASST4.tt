@@ -1,0 +1,11 @@
+﻿.<#=Args.MainCSSClass#> {
+
+
+    @media (min-width: $screen-xs) {
+        
+    }
+
+    @media (min-width: $screen-lg) {
+        
+    }
+}

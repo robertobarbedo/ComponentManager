@@ -18,7 +18,7 @@ namespace Score.ComponentManager.Parts.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+    #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class CSHTMLT4 : CSHTMLT4Base
     {
@@ -30,14 +30,21 @@ namespace Score.ComponentManager.Parts.T4
         {
             this.Write("\r\n@using ");
             
-            #line 7 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ProjectName));
+            #line 7 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.BaseNamespace));
             
             #line default
             #line hidden
-            this.Write(".Data.CustomItems\r\n@using Score.Custom.FieldTypes\r\n@model ");
+            this.Write(".Data.CustomItems");
             
-            #line 9 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 7 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentFolderOnlyNoSpace.Replace('/','.')));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n@using Score.Custom.FieldTypes\r\n@model ");
+            
+            #line 9 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Args.ModelType));
             
             #line default
@@ -45,71 +52,58 @@ namespace Score.ComponentManager.Parts.T4
             this.Write("\r\n \r\n@if (Sitecore.Context.PageMode.IsExperienceEditorEditing)\r\n{\r\n    <div class" +
                     "=\"@Model.Classes\">\r\n        ");
             
-            #line 14 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 14 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("        <div>\r\n        @Html.Sitecore().Field(");
             
-            #line 16 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 16 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item.FieldNames.");
             
-            #line 16 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 16 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(")\r\n        </div>\r\n        ");
             
-            #line 18 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 18 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
 }
             
             #line default
             #line hidden
-            this.Write("    </div>\r\n}\r\nelse\r\n{\r\n    using (Html.BeginUXModule(\"");
+            this.Write("    </div>\r\n}\r\nelse\r\n{\r\n    using (Html.BeginUXModule(\r\n    Model.UXModule,\r\n    " +
+                    "new\r\n    {\r\n        IsEditing = Sitecore.Context.PageMode.IsExperienceEditorEdit" +
+                    "ing\r\n    },\r\n    new {@class = Model.Classes}))\r\n    {\r\n        ");
             
-            #line 23 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write("/Components/");
-            
-            #line 23 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentPath));
-            
-            #line default
-            #line hidden
-            this.Write("\",\r\n    new\r\n    {\r\n        IsEditing = Sitecore.Context.PageMode.IsExperienceEdi" +
-                    "torEditing\r\n    },\r\n    new {@class = Model.Classes}))\r\n    {\r\n        ");
-            
-            #line 30 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 31 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("        <div>\r\n        @Html.Sitecore().Field(");
             
-            #line 32 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 33 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item.FieldNames.");
             
-            #line 32 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 33 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(")\r\n        </div>\r\n        ");
             
-            #line 34 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+            #line 35 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
 }
             
             #line default
@@ -118,7 +112,7 @@ foreach (var field in Args.DatasourceFields) {
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 38 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
+        #line 39 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\CSHTMLT4.tt"
 
 public string ToCSharp(string name)
 {

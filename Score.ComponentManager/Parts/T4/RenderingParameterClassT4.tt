@@ -7,16 +7,12 @@
 
 /**Generated Code**/
 using Score.Data.Extensions;
-using Score.UI.Data.EventManager.ActionPerformers;
 using Score.UI.Data.RenderingParameters;
-using Sitecore;
 using Sitecore.Mvc.Presentation;
-using System.Collections.Generic;
-using System.Linq;
  
-namespace <#=Args.ProjectName#>.Data.RenderingParameters
+namespace <#=Args.BaseNamespace#>.Data.RenderingParameters<#=Args.ComponentFolderOnlyNoSpace.Replace('/','.')#>
 {
-    public partial class <#=Args.ComponentName#>Parameters : BaseComponentParameters
+    public partial class <#=Args.ComponentNameNoSpace#>Parameters : BaseComponentParameters
     {
         <#foreach (var field in Args.RenderingParameterFields) {  #>
         public const string <#=ToCSharp(field.Name)#>Name = "<#=field.Name#>";

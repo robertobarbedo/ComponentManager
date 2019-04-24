@@ -18,7 +18,7 @@ namespace Score.ComponentManager.Parts.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+    #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class RenderingParameterClassT4 : RenderingParameterClassT4Base
     {
@@ -28,54 +28,52 @@ namespace Score.ComponentManager.Parts.T4
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"
-/**Generated Code**/
-using Score.Data.Extensions;
-using Score.UI.Data.EventManager.ActionPerformers;
-using Score.UI.Data.RenderingParameters;
-using Sitecore;
-using Sitecore.Mvc.Presentation;
-using System.Collections.Generic;
-using System.Linq;
- 
-namespace ");
+            this.Write("\r\n/**Generated Code**/\r\nusing Score.Data.Extensions;\r\nusing Score.UI.Data.Renderi" +
+                    "ngParameters;\r\nusing Sitecore.Mvc.Presentation;\r\n \r\nnamespace ");
             
-            #line 17 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ProjectName));
+            #line 13 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.BaseNamespace));
             
             #line default
             #line hidden
-            this.Write(".Data.RenderingParameters\r\n{\r\n    public partial class ");
+            this.Write(".Data.RenderingParameters");
             
-            #line 19 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 13 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentFolderOnlyNoSpace.Replace('/','.')));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    public partial class ");
+            
+            #line 15 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Parameters : BaseComponentParameters\r\n    {\r\n        ");
             
-            #line 21 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 17 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
 foreach (var field in Args.RenderingParameterFields) {  
             
             #line default
             #line hidden
             this.Write("        public const string ");
             
-            #line 22 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 18 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write("Name = \"");
             
-            #line 22 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 18 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Name));
             
             #line default
             #line hidden
             this.Write("\";\r\n        ");
             
-            #line 23 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 19 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
 }
             
             #line default
@@ -83,21 +81,21 @@ foreach (var field in Args.RenderingParameterFields) {
             this.Write("\r\n        public override void LoadRenderingParameters(Rendering rendering)\r\n    " +
                     "    {\r\n            base.LoadRenderingParameters(rendering);\r\n            ");
             
-            #line 28 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 24 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
 foreach (var field in Args.RenderingParameterFields) {  
             
             #line default
             #line hidden
             this.Write("            ClassSelection += \" \" + rendering.Parameters.GetUserFriendlyValue(");
             
-            #line 29 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 25 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write("Name);\r\n            ");
             
-            #line 30 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+            #line 26 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
 }
             
             #line default
@@ -106,7 +104,7 @@ foreach (var field in Args.RenderingParameterFields) {
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 35 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
+        #line 31 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\RenderingParameterClassT4.tt"
 
 public string ToCSharp(string name)
 {

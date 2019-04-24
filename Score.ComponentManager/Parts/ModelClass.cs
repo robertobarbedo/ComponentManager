@@ -13,8 +13,8 @@ namespace Score.ComponentManager.Parts
 
             ClassName = ComponentPath.Split('/').Reverse().Take(1).FirstOrDefault() ?? "";
 
-            ModelType = $"{ProjectName}.Web.Areas.{ProjectName}.Models{ComponentPath.Replace("/", ".")}RenderingModel";
-            ModelFullyQualifiedType = $"{ProjectName}.Web.Areas.{ProjectName}.Models{ComponentPath.Replace("/", ".")}RenderingModel, {ProjectName}.Web";
+            ModelType = $"{BaseNamespace}.Web.Areas.{ProjectName}.Models{ComponentPath.Replace(" ", "").Replace("/", ".")}RenderingModel";
+            ModelFullyQualifiedType = $"{BaseNamespace}.Web.Areas.{ProjectName}.Models{ComponentPath.Replace(" ", "").Replace("/", ".")}RenderingModel, {BaseNamespace}.Web";
 
             Status = File.Exists(Path) ? Status.Created : Status.Missing;
         }
@@ -33,6 +33,7 @@ namespace Score.ComponentManager.Parts
 
             ModelClassT4 tt = new ModelClassT4(new T4Args() {
                 ProjectName = ProjectName,
+                BaseNamespace = BaseNamespace,
                 ComponentName = ComponentItem.Name,
                 ComponentPath = ComponentPath,
                 ComponentFolderOnly = ComponentFolderOnly

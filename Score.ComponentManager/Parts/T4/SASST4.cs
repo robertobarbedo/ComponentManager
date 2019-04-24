@@ -9,18 +9,15 @@
 // ------------------------------------------------------------------------------
 namespace Score.ComponentManager.Parts.T4
 {
-    using System.Linq;
-    using System.Text;
-    using System.Collections.Generic;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
+    #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\SASST4.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class ModelClassT4 : ModelClassT4Base
+    public partial class SASST4 : SASST4Base
     {
 #line hidden
         /// <summary>
@@ -28,129 +25,15 @@ namespace Score.ComponentManager.Parts.T4
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\n/**Generated Code**/\r\nusing ");
+            this.Write(".");
             
-            #line 9 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.BaseNamespace));
-            
-            #line default
-            #line hidden
-            this.Write(".Data.CustomItems");
-            
-            #line 9 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentFolderOnlyNoSpace.Replace('/','.')));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\nusing ");
-            
-            #line 10 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.BaseNamespace));
-            
-            #line default
-            #line hidden
-            this.Write(".Data.RenderingParameters");
-            
-            #line 10 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentFolderOnlyNoSpace.Replace('/','.')));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\nusing Score.UI.Web.Areas.ScoreUI.Models;\r\nusing Sitecore.Data.Items;\r\nusing Si" +
-                    "tecore.Mvc.Presentation;\r\n \r\nnamespace ");
-            
-            #line 15 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.BaseNamespace));
-            
-            #line default
-            #line hidden
-            this.Write(".Web.Areas.");
-            
-            #line 15 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Models");
-            
-            #line 15 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentFolderOnlyNoSpace.Replace('/','.')));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n{\r\n    public partial class ");
-            
-            #line 17 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("RenderingModel : RenderingModelBase<");
-            
-            #line 17 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("Parameters, ");
-            
-            #line 17 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("Item>\r\n    { \r\n        public ");
-            
-            #line 19 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("RenderingModel() : base(\"");
-            
-            #line 19 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
+            #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\SASST4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Args.MainCSSClass));
             
             #line default
             #line hidden
-            this.Write("\"){\r\n            UXModule = \"");
-            
-            #line 20 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write("/Components");
-            
-            #line 20 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentPathNoSpace.Replace(" ","")));
-            
-            #line default
-            #line hidden
-            this.Write("\";\r\n        }\r\n\r\n    \r\n        public override void Initialize(Rendering renderin" +
-                    "g)\r\n        {\r\n            base.Initialize(rendering);\r\n            if (HasDatas" +
-                    "ource)\r\n            {\r\n            }\r\n        }\r\n \r\n        protected override ");
-            
-            #line 32 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("Item InitializeDatasource(Item item)\r\n        {\r\n            ");
-            
-            #line 34 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("Item datasource;\r\n            return ");
-            
-            #line 35 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\ModelClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
-            
-            #line default
-            #line hidden
-            this.Write("Item.TryParse(item, out datasource) ? datasource : null;\r\n        }\r\n    }\r\n} ");
+            this.Write(" {\r\n\r\n\r\n    @media (min-width: $screen-xs) {\r\n        \r\n    }\r\n\r\n    @media (min-" +
+                    "width: $screen-lg) {\r\n        \r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -162,7 +45,7 @@ namespace Score.ComponentManager.Parts.T4
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class ModelClassT4Base
+    public class SASST4Base
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

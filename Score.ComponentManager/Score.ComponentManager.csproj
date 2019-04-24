@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Dashboard.cs" />
+    <Compile Include="Events\CMRemoveWhiteSpaces.cs" />
+    <Compile Include="Parts\SASS.cs" />
     <Compile Include="Parts\JavaScript.cs" />
     <Compile Include="Parts\DatasourceClass.cs" />
     <Compile Include="Parts\CSHTML.cs" />
@@ -65,6 +67,11 @@
     <Compile Include="Parts\RenderingDefinitionItem.cs" />
     <Compile Include="Parts\DatasourceTemplate.cs" />
     <Compile Include="Parts\PartBase.cs" />
+    <Compile Include="Parts\T4\SASST4.cs">
+      <DependentUpon>SASST4.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Parts\T4\JavaScriptT4.cs">
       <DependentUpon>JavaScriptT4.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -104,12 +111,18 @@
     <Compile Include="Templates\ComponentManagerModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Config\Modules\ComponentManager\ComponentManager.config" />
+    <None Include="App_Config\Modules\ComponentManager\ComponentManager.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Parts\T4\SASST4.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SASST4.cs</LastGenOutput>
+    </Content>
     <Content Include="Parts\T4\JavaScriptT4.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>JavaScriptT4.cs</LastGenOutput>

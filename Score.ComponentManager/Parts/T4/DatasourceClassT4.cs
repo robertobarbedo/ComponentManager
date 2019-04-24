@@ -18,7 +18,7 @@ namespace Score.ComponentManager.Parts.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+    #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class DatasourceClassT4 : DatasourceClassT4Base
     {
@@ -30,138 +30,144 @@ namespace Score.ComponentManager.Parts.T4
         {
             this.Write("\r\n/**Generated Code**/\r\nusing Score.Custom.FieldTypes;\r\nusing Score.Data.Extensio" +
                     "ns;\r\nusing Score.UI.Data.DatasourceItems;\r\nusing Sitecore.Data;\r\nusing Sitecore." +
-                    "Data.Fields;\r\nusing Sitecore.Data.Items;\r\nusing Sitecore.Data.Fields;\r\n \r\nnamesp" +
-                    "ace ");
+                    "Data.Fields;\r\nusing Sitecore.Data.Items;\r\n \r\nnamespace ");
             
-            #line 17 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ProjectName));
+            #line 16 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.BaseNamespace));
             
             #line default
             #line hidden
-            this.Write(".Data.CustomItems\r\n{\r\n    public partial class ");
+            this.Write(".Data.CustomItems");
             
-            #line 19 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 16 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentFolderOnlyNoSpace.Replace('/','.')));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    public partial class ");
+            
+            #line 18 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item : ScoreUIItem\r\n    {\r\n        protected internal ");
             
-            #line 21 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 20 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item(Item item)\r\n            : base(item)\r\n        {\r\n            ");
             
-            #line 24 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 23 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("            ");
             
-            #line 25 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 24 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(" = item.Fields[FieldIDs.");
             
-            #line 25 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 24 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write("];\r\n            ");
             
-            #line 26 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 25 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 }
             
             #line default
             #line hidden
             this.Write("        }\r\n \r\n\r\n        ");
             
-            #line 30 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 29 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 31 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 30 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetFieldType(field.Type)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 31 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 30 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n        ");
             
-            #line 32 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 31 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 }
             
             #line default
             #line hidden
             this.Write("         \r\n        ");
             
-            #line 34 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 33 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("        public virtual bool Has");
             
-            #line 35 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 34 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write("\r\n        {\r\n            get { return ");
             
-            #line 37 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 36 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(" != null && !string.IsNullOrWhiteSpace(");
             
-            #line 37 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 36 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(".Value); }\r\n        }\r\n\r\n        ");
             
-            #line 40 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 39 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 }
             
             #line default
             #line hidden
             this.Write("\r\n        #region [ Operators ]\r\n        public static implicit operator ");
             
-            #line 43 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 42 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item(Item innerItem)\r\n        {\r\n            return innerItem == null ? null : ne" +
                     "w ");
             
-            #line 45 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 44 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item(innerItem);\r\n        }\r\n \r\n        public static implicit operator Item(");
             
-            #line 48 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 47 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
@@ -169,16 +175,16 @@ foreach (var field in Args.DatasourceFields) {
                     "mItem.InnerItem;\r\n        }\r\n \r\n        public static bool TryParse(Item item, o" +
                     "ut ");
             
-            #line 53 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 52 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("Item parsedItem)\r\n        {\r\n            parsedItem = item == null || !item.IsDer" +
                     "ived(Template) ? null : new ");
             
-            #line 55 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 54 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
@@ -186,7 +192,7 @@ foreach (var field in Args.DatasourceFields) {
                     "n\r\n        \r\n        #region [ Template ]\r\n        public static ID Template { g" +
                     "et { return new ID(\"");
             
-            #line 61 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 60 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Args.TemplateID));
             
             #line default
@@ -194,56 +200,56 @@ foreach (var field in Args.DatasourceFields) {
             this.Write("\"); } }\r\n        \r\n        public static class FieldNames \r\n        {\r\n          " +
                     "  ");
             
-            #line 65 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 64 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("            public static string ");
             
-            #line 66 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 65 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(" { get { return \"");
             
-            #line 66 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 65 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Name));
             
             #line default
             #line hidden
             this.Write("\"; } }\r\n            ");
             
-            #line 67 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 66 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 }
             
             #line default
             #line hidden
             this.Write("        }\r\n        public static class FieldIDs\r\n        {\r\n            ");
             
-            #line 71 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 70 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 foreach (var field in Args.DatasourceFields) {  
             
             #line default
             #line hidden
             this.Write("            public static string ");
             
-            #line 72 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 71 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToCSharp(field.Name)));
             
             #line default
             #line hidden
             this.Write(" { get { return \"");
             
-            #line 72 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 71 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.ID));
             
             #line default
             #line hidden
             this.Write("\"; } }\r\n            ");
             
-            #line 73 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+            #line 72 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 }
             
             #line default
@@ -252,7 +258,7 @@ foreach (var field in Args.DatasourceFields) {
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 80 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
+        #line 79 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\DatasourceClassT4.tt"
 
 public string ToCSharp(string name)
 {

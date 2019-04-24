@@ -8,6 +8,7 @@ namespace Score.ComponentManager.Parts
     {
         private ID TemplateFolderID = new ID("{0437FEE2-44C9-46A6-ABE9-28858D9FEE8C}");
         private ID TemplateID = new ID("{AB86861A-6030-46C5-B394-E8F99E8B87DB}");
+        private ID ScoreListItemTemplateID = new ID("{0B812923-4A0F-4472-BB25-A2D4B10D881E}");
 
         private ID FolderBaseTemplateID = new ID("{A87A00B1-E6DB-45AB-8B54-636FEC3B5523}");
         
@@ -42,7 +43,12 @@ namespace Score.ComponentManager.Parts
 
             //ItemRuntimeSettings std values
             var template = new TemplateItem(item);
-            template.CreateStandardValues();
+            var stdValues = template.CreateStandardValues();
+
+            //edit std values
+            stdValues.Editing.BeginEdit();
+            stdValues.Fields["__Masters"].Value = ScoreListItemTemplateID.ToString();
+            stdValues.Editing.EndEdit();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Score.ComponentManager.Parts.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\JavaScriptT4.tt"
+    #line 1 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\JavaScriptT4.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class JavaScriptT4 : JavaScriptT4Base
     {
@@ -30,16 +30,16 @@ namespace Score.ComponentManager.Parts.T4
         {
             this.Write("\r\ndefine([\'jquery\'], function($) {\r\n    function ");
             
-            #line 8 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\JavaScriptT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 8 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\JavaScriptT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden
             this.Write("(scope) { \r\n    }\r\n\r\n    return function init(args) {\r\n        return args.IsExpe" +
                     "rienceEditorEditing ? null : new ");
             
-            #line 12 "C:\Projects\CM\Score.ComponentManager\Score.ComponentManager\Parts\T4\JavaScriptT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentName));
+            #line 12 "C:\Projects\CM\ComponentManager\Score.ComponentManager\Parts\T4\JavaScriptT4.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Args.ComponentNameNoSpace));
             
             #line default
             #line hidden

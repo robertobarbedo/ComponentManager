@@ -6,16 +6,21 @@
 <#@ import namespace="System.Collections.Generic" #>
 
 /**Generated Code**/
-using <#=Args.ProjectName#>.Data.CustomItems;
-using <#=Args.ProjectName#>.Data.RenderingParameters;
+using <#=Args.BaseNamespace#>.Data.CustomItems<#=Args.ComponentFolderOnlyNoSpace.Replace('/','.')#>;
+using <#=Args.BaseNamespace#>.Data.RenderingParameters<#=Args.ComponentFolderOnlyNoSpace.Replace('/','.')#>;
 using Score.UI.Web.Areas.ScoreUI.Models;
 using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
  
-namespace <#=Args.ProjectName#>.Web.Areas.<#=Args.ProjectName#>.Models<#=Args.ComponentFolderOnly.Replace('/','.')#>
+namespace <#=Args.BaseNamespace#>.Web.Areas.<#=Args.ProjectName#>.Models<#=Args.ComponentFolderOnlyNoSpace.Replace('/','.')#>
 {
-    public partial class <#=Args.ComponentName#>RenderingModel : RenderingModelBase<<#=Args.ComponentName#>Parameters, <#=Args.ComponentName#>Item>
+    public partial class <#=Args.ComponentNameNoSpace#>RenderingModel : RenderingModelBase<<#=Args.ComponentNameNoSpace#>Parameters, <#=Args.ComponentNameNoSpace#>Item>
     { 
+        public <#=Args.ComponentNameNoSpace#>RenderingModel() : base("<#=Args.MainCSSClass#>"){
+            UXModule = "<#=Args.ProjectName#>/Components<#=Args.ComponentPathNoSpace.Replace(" ","")#>";
+        }
+
+    
         public override void Initialize(Rendering rendering)
         {
             base.Initialize(rendering);
@@ -24,10 +29,10 @@ namespace <#=Args.ProjectName#>.Web.Areas.<#=Args.ProjectName#>.Models<#=Args.Co
             }
         }
  
-        protected override <#=Args.ComponentName#>Item InitializeDatasource(Item item)
+        protected override <#=Args.ComponentNameNoSpace#>Item InitializeDatasource(Item item)
         {
-            <#=Args.ComponentName#>Item datasource;
-            return <#=Args.ComponentName#>Item.TryParse(item, out datasource) ? datasource : null;
+            <#=Args.ComponentNameNoSpace#>Item datasource;
+            return <#=Args.ComponentNameNoSpace#>Item.TryParse(item, out datasource) ? datasource : null;
         }
     }
 } 

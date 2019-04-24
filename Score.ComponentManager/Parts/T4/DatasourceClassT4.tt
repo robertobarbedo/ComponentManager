@@ -12,13 +12,12 @@ using Score.UI.Data.DatasourceItems;
 using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
-using Sitecore.Data.Fields;
  
-namespace <#=Args.ProjectName#>.Data.CustomItems
+namespace <#=Args.BaseNamespace#>.Data.CustomItems<#=Args.ComponentFolderOnlyNoSpace.Replace('/','.')#>
 {
-    public partial class <#=Args.ComponentName#>Item : ScoreUIItem
+    public partial class <#=Args.ComponentNameNoSpace#>Item : ScoreUIItem
     {
-        protected internal <#=Args.ComponentName#>Item(Item item)
+        protected internal <#=Args.ComponentNameNoSpace#>Item(Item item)
             : base(item)
         {
             <#foreach (var field in Args.DatasourceFields) {  #>
@@ -40,19 +39,19 @@ namespace <#=Args.ProjectName#>.Data.CustomItems
         <#}#>
 
         #region [ Operators ]
-        public static implicit operator <#=Args.ComponentName#>Item(Item innerItem)
+        public static implicit operator <#=Args.ComponentNameNoSpace#>Item(Item innerItem)
         {
-            return innerItem == null ? null : new <#=Args.ComponentName#>Item(innerItem);
+            return innerItem == null ? null : new <#=Args.ComponentNameNoSpace#>Item(innerItem);
         }
  
-        public static implicit operator Item(<#=Args.ComponentName#>Item customItem)
+        public static implicit operator Item(<#=Args.ComponentNameNoSpace#>Item customItem)
         {
             return customItem == null ? null : customItem.InnerItem;
         }
  
-        public static bool TryParse(Item item, out <#=Args.ComponentName#>Item parsedItem)
+        public static bool TryParse(Item item, out <#=Args.ComponentNameNoSpace#>Item parsedItem)
         {
-            parsedItem = item == null || !item.IsDerived(Template) ? null : new <#=Args.ComponentName#>Item(item);
+            parsedItem = item == null || !item.IsDerived(Template) ? null : new <#=Args.ComponentNameNoSpace#>Item(item);
             return parsedItem != null;
         }
         #endregion

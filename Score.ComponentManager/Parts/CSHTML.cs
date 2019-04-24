@@ -18,7 +18,7 @@ namespace Score.ComponentManager.Parts
 
             Status = File.Exists(Path) ? Status.Created : Status.Missing;
 
-            RelativePath = $"/Areas/{ProjectName}/Views/Shared{ComponentPath}.cshtml";
+            RelativePath = $"/Areas/{ProjectName}/Views/Shared{ComponentPath.Replace(" ","")}.cshtml";
         }
 
         public override int SortOrder => 120;
@@ -34,6 +34,7 @@ namespace Score.ComponentManager.Parts
             CSHTMLT4 tt = new CSHTMLT4(new T4Args()
             {
                 ProjectName = ProjectName,
+                BaseNamespace = BaseNamespace,
                 ComponentName = ComponentItem.Name,
                 ComponentPath = ComponentPath,
                 ModelType = new ModelClass(ComponentItem).ModelType,

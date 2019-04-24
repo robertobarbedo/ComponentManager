@@ -39,12 +39,22 @@
             Args = args;
         }
     }
-    
+
     partial class JavaScriptT4
     {
         private T4Args Args;
 
         public JavaScriptT4(T4Args args)
+        {
+            Args = args;
+        }
+    }
+
+    partial class SASST4
+    {
+        private T4Args Args;
+
+        public SASST4(T4Args args)
         {
             Args = args;
         }

@@ -15,7 +15,7 @@ namespace Score.ComponentManager.Parts
 
             ClassName = ComponentPath.Split('/').Reverse().Take(1).FirstOrDefault() ?? "";
 
-            ModelType = $"{ProjectName}.Data.RenderingParameters{ComponentPath.Replace("/", ".")}, {ProjectName}.Data";
+            ModelType = $"{BaseNamespace}.Data.RenderingParameters{ComponentPath.Replace(" ", "").Replace("/", ".")}, {BaseNamespace}.Data";
 
             Status = File.Exists(Path) ? Status.Created : Status.Missing;
         }
@@ -33,6 +33,7 @@ namespace Score.ComponentManager.Parts
             RenderingParameterClassT4 tt = new RenderingParameterClassT4(new T4Args()
             {
                 ProjectName = ProjectName,
+                BaseNamespace = BaseNamespace,
                 ComponentName = ComponentItem.Name,
                 ComponentPath = ComponentPath,
                 RenderingParameterFields = GetFields().ToList(),
@@ -52,7 +53,8 @@ namespace Score.ComponentManager.Parts
                 "Placeholder",
                 "Additional Parameters",
                 "Personalization",
-                "Tests"
+                "Tests",
+                "Override Cache Settings"
             };
 
             string stdValuesPath = $"{new RenderingParameterTemplate(ComponentItem).Path}/__Standard Values";

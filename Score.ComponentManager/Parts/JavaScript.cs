@@ -33,6 +33,7 @@ namespace Score.ComponentManager.Parts
             JavaScriptT4 tt = new JavaScriptT4(new T4Args()
             {
                 ProjectName = ProjectName,
+                BaseNamespace = BaseNamespace,
                 ComponentName = ComponentItem.Name,
                 ComponentPath = ComponentPath,
                 ModelType = new ModelClass(ComponentItem).ModelType,

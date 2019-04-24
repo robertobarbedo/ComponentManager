@@ -5,10 +5,10 @@
 <#@ import namespace="System.Collections.Generic" #>
 
 define(['jquery'], function($) {
-    function <#=Args.ComponentName#>(scope) { 
+    function <#=Args.ComponentNameNoSpace#>(scope) { 
     }
 
     return function init(args) {
-        return args.IsExperienceEditorEditing ? null : new <#=Args.ComponentName#>(args.scope);
+        return args.IsExperienceEditorEditing ? null : new <#=Args.ComponentNameNoSpace#>(args.scope);
     }
 });

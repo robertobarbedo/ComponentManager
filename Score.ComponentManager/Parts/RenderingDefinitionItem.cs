@@ -47,7 +47,7 @@ namespace Score.ComponentManager.Parts
         private string GetDatasourceLocation()
         {
             string onlyPath = string.Join("/", ComponentPath.Split('/').Reverse().Skip(1).Reverse());
-            return $"content-all:/Content/{onlyPath}";
+            return $"content-all:/Content{onlyPath}";
         }
     }
 }
